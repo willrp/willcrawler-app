@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+    es:
+        image: elasticsearch:5.4.3
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        environment:
+            - discovery.type=single-node
+            - cluster.name=willbuyer-cluster
+            - ES_JAVA_OPTS=-Xms512m -Xmx512m
