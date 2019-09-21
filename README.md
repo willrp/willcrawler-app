@@ -91,7 +91,7 @@ $ pipenv run python commands.py mapping --url http://DOCKER_MACHINE_IP:9200
 If everything is done well, a confirmation message will be shown on the screen.
 
 ```
-Creating map on index: http://192.168.99.100:9200/store
+Creating map on index: http://DOCKER_MACHINE_IP:9200/store
 Mapping not found, creating a new one.
 Mapping created successfully.
 ```
