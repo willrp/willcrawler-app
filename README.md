@@ -24,12 +24,6 @@ WillCrawler is an application to serve as data source for the WillBuyer demonstr
 * [Click](https://github.com/pallets/click): Python composable command line interface toolkit;
 * [Docker](https://www.docker.com/): Performs web services containerization, helping on application development, integration tests and production. Boosts production by getting everything started easily and isolated, and reloading the application on code change.
 
-## Testing tools
-
-* [Pytest](https://github.com/pytest-dev/pytest): A mature full-featured Python testing tool that helps you write better programs;
-* [Pytest-cov](https://github.com/pytest-dev/pytest-cov): A plugin to produce coverage reports for Pytest;
-* [VCRpy](https://github.com/kevin1024/vcrpy): Automatically mock HTTP interactions to simplify and speed up testing.
-
 ## Prerequisites
 
 The following softwares are needed in order to install this application:
