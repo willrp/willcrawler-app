@@ -11,6 +11,7 @@ from willcrawler.libwill import getByPos, stripSpaces, get_session_id
 
 class AsosSessions(scrapy.Spider):
     name = "asossessions"
+    user_agent = "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
     download_delay = 0.5
     start_urls = [
         "http://www.asos.com/women/sale/",
@@ -45,7 +46,8 @@ class AsosSessions(scrapy.Spider):
 
 class AsosProducts(scrapy.Spider):
     name = "asosproducts"
-    download_delay = 0.1
+    user_agent = "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
+    download_delay = 0.5
     start_urls = [
         "http://www.asos.com/women/sale/",
         "http://www.asos.com/men/sale/"
