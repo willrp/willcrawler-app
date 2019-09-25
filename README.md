@@ -14,8 +14,7 @@ WillCrawler is an application to serve as data source for the WillBuyer demonstr
 * [Python](https://www.python.org): Main backend programming language. For Web services control, service and model layers;
 * [Python-dotenv](https://github.com/theskumar/python-dotenv): Get and set values in your .env file in local and production servers;
 * [Pip](https://pypi.python.org/pypi/pip): For dependency management of Python APIs, libraries and frameworks. Bundled with Python;
-* [Pipenv](https://github.com/pypa/pipenv): Package manager for Python programmin language;
-* [Requests](https://github.com/requests/requests): For making server HTTP requests;
+* [Pipenv](https://github.com/pypa/pipenv): Package manager for Python programming language;
 * [Scrapy](https://scrapy.org): Web crawling framework. For crawling data from e-commerce webpages and structure it;
 * [Scrapy-Elasticsearch](https://github.com/knockrentals/scrapy-elasticsearch): A Scrapy pipeline which send items to Elasticsearch server.
 
@@ -66,9 +65,7 @@ $ docker-compose up
 
 The Elasticsearch server will run on port 9200. The IP address will be the same one as your Docker machine.
 
-### Setting up the mapping
-
-First, get the IP of you Docker machine. In order to obtain it, open the command prompt and run:
+In order to get the IP of you Docker machine. In order to obtain it, open the command prompt and run:
 
 ```
 $ docker-machine ip
@@ -76,23 +73,9 @@ $ docker-machine ip
 
 The return value of this command will be referenced as DOCKER_MACHINE_IP. If you have your own production server, please replace with it's own IP address.
 
-A command line interface was built in order to automatically set up the map. In order to do that, access the [project folder](/) with the command prompt, and run the following command.
-
-```
-$ pipenv run python commands.py mapping --url http://DOCKER_MACHINE_IP:9200
-```
-
-If everything is done well, a confirmation message will be shown on the screen.
-
-```
-Creating map on index: http://DOCKER_MACHINE_IP:9200/store
-Mapping not found, creating a new one.
-Mapping created successfully.
-```
-
 ## Data crawling
 
-This process needs an active Internet connection and **might take some time**. Locally, from 1 store, it crawls thousands of products.
+This process needs an active Internet connection and **might take some time**. Locally, from 1 store, it may crawl thousands of products.
 
 This step needs an Elasticsearch [server running](running-the-server). Access the [project folder](/) with the command prompt, and run the following command.
 
@@ -100,9 +83,9 @@ This step needs an Elasticsearch [server running](running-the-server). Access th
 $ pipenv run python commands.py scrap --url http://DOCKER_MACHINE_IP:9200 --pages NUM_PAGES
 ```
 
-Where NUM_PAGES is the number of pages that you want to scrap per session. Maximum is 5. Use the value -1 if you want to scrap all pages.
+Where NUM_PAGES is the number of pages that you want to scrap per session. Maximum is 5. Use the value -1 if you want to scrap all pages. The --pages algorithm is optional.
 
-A log is available on the [project folder](/).
+After the operation completes, a log will be available on the [project folder](/).
 
 ## Authors
 

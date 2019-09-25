@@ -1,6 +1,6 @@
 import os
 
-ELASTIC_HOST = os.getenv("ELASTIC_HOST")
+ES_URL = os.getenv("ES_URL")
 
 BOT_NAME = "willcrawler"
 SPIDER_MODULES = ["willcrawler.spiders"]
@@ -11,6 +11,6 @@ ITEM_PIPELINES = {
     'scrapyelasticsearch.scrapyelasticsearch.ElasticSearchPipeline': 500
 }
 
-ELASTICSEARCH_SERVERS = [ELASTIC_HOST]
+ELASTICSEARCH_SERVERS = [ES_URL]
 LOG_FILE = "willcrawler.log"
 LOG_ENABLED = True
