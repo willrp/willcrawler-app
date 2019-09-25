@@ -1,11 +1,8 @@
 import collections
 import re
-import os
 from elasticsearch_dsl import Search
-from elasticsearch import Elasticsearch
 
-
-ELASTIC_HOST = os.getenv("ELASTIC_HOST")
+from .dao import es_object
 
 
 def counter():
@@ -39,7 +36,7 @@ def stripSpaces(str):
 
 
 def get_session_id(esindex, estype, name, gender):
-    esconn = Elasticsearch(ELASTIC_HOST)
+    esconn = es_object.connection
     s = Search(using=esconn, index=esindex, doc_type=estype)
     s = s.filter("term", gender=gender.lower()).query("match_phrase", name=stripSpaces(str(name)).title())
     response = s.execute()

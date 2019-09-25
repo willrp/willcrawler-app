@@ -1,7 +1,7 @@
 import os
 import click
-import json
-import requests
+
+from willcrawler.dao import es_object
 
 
 @click.group()
@@ -11,43 +11,14 @@ def cli():
 
 @cli.command()
 @click.option("--url", "url", required=True, help="Elasticsearch index server address")
-def mapping(url):
-    """Create mapping on Elasticsearch database"""
-    try:
-        print("Creating map on index: %s/store" % url)
-        response = requests.get(
-            url + "/store/_mapping"
-        )
-
-        if response.status_code == 404:
-            print("Mapping not found, creating a new one.")
-            with open("mapping.json") as f:
-                data = json.loads(f.read())
-                f.close()
-
-                response = requests.put(
-                    url + "/store",
-                    json=data
-                )
-
-                response.raise_for_status()
-                print("Mapping created successfully.")
-        else:
-            print("Mapping already exists, operation aborted.")
-    except Exception as e:
-        print("The following exception happened: %s" % e)
-        print("Please check the --url argument and try again.")
-
-
-@cli.command()
-@click.option("--url", "url", required=True, help="Elasticsearch index server address")
 @click.option("--pages", "pages", type=int, default=2, help="Pages to scrap for each session")
 def scrap(url, pages):
     original_environ = os.environ.copy()
     try:
         if pages == -1 or (pages > 0 and pages <= 5):
-            os.environ["ELASTIC_HOST"] = url
+            os.environ["ES_URL"] = url
             os.environ["TOTAL_PAGES"] = str(pages)
+            es_object.connection
             os.system("scrapy crawl asossessions")
             os.system("scrapy crawl asosproducts")
         else:
