@@ -83,7 +83,7 @@ This step needs an Elasticsearch [server running](running-the-server). Access th
 $ pipenv run python commands.py scrap --url http://DOCKER_MACHINE_IP:9200 --pages NUM_PAGES
 ```
 
-Where NUM_PAGES is the number of pages that you want to scrap per session. Maximum is 5. Use the value -1 if you want to scrap all pages. The --pages algorithm is optional.
+Where NUM_PAGES is the number of pages that you want to scrap per session. Maximum is 5. Use the value -1 if you want to scrap all pages. The --pages argument is optional.
 
 After the operation completes, a log will be available on the [project folder](/).
 
